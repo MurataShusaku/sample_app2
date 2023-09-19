@@ -1,0 +1,19 @@
+<% provide(:title, 'Sign up') %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+	#セッションの場合はリソースのスコープ（ここではセッション）とそれに対応するURLを具体的に指定する必要があります。
+    <%= form_with(url: login_path, scope: :session) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+		<p>New user? <%= link_to "Sign up now!",signup_path %></p>
+  </div>
+</div>
